@@ -10,7 +10,6 @@ date = datetime.now().strftime("%Y%m%d%H%M%S")
 file_path = "versions/web_static_{}.tgz".format(date)
 
 
-
 def do_pack():
     """generates .tgz archive from a folder"""
     if os.path.isdir('versions') is False:
