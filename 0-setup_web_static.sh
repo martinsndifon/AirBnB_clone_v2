@@ -2,15 +2,14 @@
 # set up the web server for the deployment of web_static
 
 apt update -y
-apt install nginx -y
-#which nginx > testfile.txt
-#file="testfile.txt"
+which nginx > testfile.txt
+file="testfile.txt"
 
-#if [ ! -s "$file" ]
-#then
-#	apt install nginx -y
-#fi
-#rm $file
+if [ ! -s "$file" ]
+then
+	apt install nginx -y
+fi
+rm $file
 
 mkdir -p /data/web_static/releases/test
 mkdir -p /data/web_static/shared
