@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # Fabric script that does the full deployment to both servers using deploy()
 
-from fabric.api import local, put, env, run
+from fabric.api import local, put, env, run, lcd, cd
 from datetime import datetime
 import os.path
 
