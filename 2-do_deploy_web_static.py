@@ -19,7 +19,7 @@ def do_deploy(archive_path):
     new_name = m_name[0]
 
     upload = "/tmp/" + n_name
-    arch_fold = "/data/web_static/release/" + new_name
+    arch_fold = "/data/web_static/releases/" + new_name
 
     put(archive_path, upload)
 
