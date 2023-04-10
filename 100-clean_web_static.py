@@ -66,31 +66,22 @@ def deploy():
 
 
 def do_clean(number=0):
+    """Delete out-of-date archives.
+    Args:
+        number (int): The number of archives to keep.
+    If number is 0 or 1, keeps only the most recent archive. If
+    number is 2, keeps the most and second-most recent archives,
+    etc.
     """
-    clean arch
-    """
-    try:
-        number = int(number)
-    except Exception:
-        return False
-    nb_of_arch = local('ls -ltr versions | wc -l', capture=True).stdout
-    nb_of_arch = int(nb_of_arch) - 1
-    if nb_of_arch <= 0 or nb_of_arch == 1:
-        return True
-    if number == 0 or number == 1:
-        arch_to_rm = nb_of_arch - 1
-    else:
-        arch_to_rm = arch_to_rm - number
-        if arch_to_rm <= 0:
-            return True
-    archives = local("ls -ltr versions | tail -n " + str(nb_of_arch) + "\
-            | head -n \
-            " + str(arch_to_rm) + "\
-            | awk '{print $9}'", capture=True)
-    archives_list = archives.rsplit('\n')
-    if len(archives_list) >= 1:
-        for arch in archives_list:
-            if (arch != ''):
-                local("rm versions/" + arch)
-                run('rm -rf /data/web_static/releases/\
-                    ' + arch.split('.')[0])
+    number = 1 if int(number) == 0 else int(number)
+
+    archives = sorted(os.listdir("versions"))
+    [archives.pop() for i in range(number)]
+    with lcd("versions"):
+        [local("rm ./{}".format(a)) for a in archives]
+
+    with cd("/data/web_static/releases"):
+        archives = run("ls -tr").split()
+        archives = [a for a in archives if "web_static_" in a]
+        [archives.pop() for i in range(number)]
+        [run("rm -rf ./{}".format(a)) for a in archives]
