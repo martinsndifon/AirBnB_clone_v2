@@ -12,6 +12,7 @@ from models.state import State
 from models.review import Review
 import os
 
+
 class DBStorage:
     """Database storage class using mysqldb and sqlalchemy"""
     __engine = None
