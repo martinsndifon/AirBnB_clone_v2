@@ -1,4 +1,4 @@
-##!/usr/bin/python3
+#!/usr/bin/python3
 """Flask module"""
 from flask import Flask
 from markupsafe import escape
@@ -18,7 +18,7 @@ def hbnb():
     return 'HBNB'
 
 
-#@app.route('/c/<text>', strict_slashes=False)
+@app.route('/c/<text>', strict_slashes=False)
 def text_c(text):
     """Displays 'C' followed by the value of the text variable"""
     text = text.replace('_', ' ')
