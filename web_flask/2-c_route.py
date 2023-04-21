@@ -2,7 +2,6 @@
 """Flask module"""
 
 from flask import Flask
-from markupsafe import escape
 
 app = Flask(__name__)
 
@@ -23,7 +22,7 @@ def hbnb():
 def textc(text):
     """Displays 'C' followed by the value of the text variable"""
     text = text.replace('_', ' ')
-    return f"C {escape(text)}"
+    return f"C {text}"
 
 
 if __name__ == '__main__':
