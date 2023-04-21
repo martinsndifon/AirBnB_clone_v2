@@ -1,27 +1,28 @@
 #!/usr/bin/python3
-"""ALX SE FLASK Module."""
+"""Flask module for the project"""
 from flask import Flask
 
 app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def root():
-    """Return 'Hello HBNB!' when our root url is access."""
+def hello():
+    """Greetings, hbnb project"""
     return 'Hello HBNB!'
 
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """Return 'HBNB!' when our root url is access."""
+    """Displays HBNB"""
     return 'HBNB'
 
 
 @app.route('/c/<text>', strict_slashes=False)
-def c_is_fun(text):
-    """Return 'C + var text value' when our root url is access."""
-    return f"C {text.replace('_', ' ')}"
+def text_c(text):
+    """Displays 'C' followed by the value of the text variable"""
+    text = text.replace('_', ' ')
+    return f"C {text}"
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5000)
