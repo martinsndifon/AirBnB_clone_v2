@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This script starts a Flask web application"""
+"""starts a Flask web application"""
 from flask import Flask
 from markupsafe import escape
 
@@ -22,7 +22,7 @@ def hbnb():
 def text_c(text):
     """Displays 'C' followed by the value of the text variable"""
     text = text.replace('_', ' ')
-    return f"C {escape(text)}"
+    return "C {}".format(escape(text))
 
 
 if __name__ == '__main__':
