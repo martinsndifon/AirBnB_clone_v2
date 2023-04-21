@@ -8,7 +8,9 @@ from sqlalchemy.sql.schema import Table
 
 place_amenity = Table("place_amenity", Base.metadata, Column(
         "place_id", String(60), ForeignKey('places.id')), Column(
-        "amenity_id", String(60), ForeignKey('amenities.id')))
+        "amenity_id", String(60), ForeignKey('amenities.id')),
+        mysql_default_charset="latin1"
+        )
 
 
 class Place(BaseModel, Base):

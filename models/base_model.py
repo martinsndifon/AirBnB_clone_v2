@@ -6,7 +6,14 @@ from sqlalchemy import Column, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 
 
-Base = declarative_base()
+class Base:
+    """Set charset of all tables."""
+    __table_args__ = {
+        "mysql_default_charset": "latin1"
+    }
+
+
+Base = declarative_base(cls=Base)
 
 
 class BaseModel:
@@ -40,8 +47,12 @@ class BaseModel:
 
     def __str__(self):
         """Returns a string representation of the instance"""
-        cls = (str(type(self)).split('.')[-1]).split('\'')[0]
-        return '[{}] ({}) {}'.format(cls, self.id, self.__dict__)
+        cls = type(self).__name__
+        obj_members = self.__dict__.copy()
+        if '_sa_instance_state' in obj_members:
+            del obj_members['_sa_instance_state']
+        return '[{}] ({}) {}'.format(cls, self.id, obj_members)
+
 
     def save(self):
         """Updates updated_at with current time when instance is changed"""
