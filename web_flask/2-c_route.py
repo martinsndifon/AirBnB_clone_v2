@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Flask module"""
+"""Flask module for the project"""
 
 from flask import Flask
 
