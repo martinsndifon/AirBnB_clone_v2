@@ -20,10 +20,10 @@ def hbnb():
 
 
 @app.route('/c/<text>', strict_slashes=False)
-def textc(text):
+def text_c(text):
     """Displays 'C' followed by the value of the text variable"""
     text = text.replace('_', ' ')
-    return f"C {escape(text)}"
+    return "C {}".format(escape(text))
 
 
 @app.route('/python/', strict_slashes=False)
@@ -31,13 +31,13 @@ def textc(text):
 def textpython(text='is cool'):
     """Displays 'Python' followed by the value of the text variable"""
     text = text.replace('_', ' ')
-    return f"Python {escape(text)}"
+    return "Python {}".format(escape(text))
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
     """displays “<n> is a number” only if n is an integer"""
-    return f"{escape(n)} is a number"
+    return "{} is a number".format(escape(n))
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
