@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Flask module for the project"""
+"""Flask module"""
 from flask import Flask
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ def hbnb():
     return 'HBNB'
 
 
-@app.route('/c/<text>', strict_slashes=False)
+#@app.route('/c/<text>', strict_slashes=False)
 def text_c(text):
     """Displays 'C' followed by the value of the text variable"""
     text = text.replace('_', ' ')
@@ -25,4 +25,4 @@ def text_c(text):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0')
