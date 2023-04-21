@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Flask module"""
+"""This script starts a Flask web application"""
 from flask import Flask
 from markupsafe import escape
 
@@ -26,4 +26,4 @@ def text_c(text):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5000)
