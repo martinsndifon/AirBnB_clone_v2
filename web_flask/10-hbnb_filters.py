@@ -2,6 +2,7 @@
 """ALX SE Flask Module."""
 from models import storage
 from models.state import State
+from models.amenity import Amenity
 from flask import Flask, render_template
 
 
@@ -14,7 +15,7 @@ def index_html_6():
     states_list = storage.all(State)
     amenities_list = storage.all(Amenity)
     return render_template(
-            '9-states.html', states=states_list, amenity=amenities_list)
+            '10-hbnb_filters.html', states=states_list, amenities=amenities_list)
 
 
 @app.teardown_appcontext

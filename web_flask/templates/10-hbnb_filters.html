@@ -26,7 +26,9 @@
 							<ul>
 								{% for city in state.cities|sort(attribute='name') %}
 								<li><h4>{{ city['name'] }}</h4></li>
+								{% endfor %}
 							</ul></li>
+						{% endfor %}
 					</ul>
 				</div>
 				<div class="filter_amenities">
@@ -35,6 +37,7 @@
 					<ul class="popover">
 						{% for amenity in amenities.values()|sort(attribute='name') %}
 						<li><h4>{{ amenity['name'] }}</h4></li>
+						{% endfor %}
 					</ul>
 				</div>
 
