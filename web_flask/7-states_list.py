@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""ALX SE Flask Module."""
+"""
+Flask module to run the web application and render
+on /state_list.
+"""
 from models import storage
 from models.state import State
 from flask import Flask, render_template

@@ -60,7 +60,7 @@ class FileStorage:
         if not obj:
             return
         obj = obj.to_dict()
-        key = f"{obj['__class__']}.{obj['id']}"
+        key = "{}.{}".format(obj['__class__'], obj['id'])
         del FileStorage.__objects[key]
 
     def close(self):
