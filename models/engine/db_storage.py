@@ -45,12 +45,12 @@ class DBStorage:
             for cls in models:
                 for objs in self.__session.query(cls).all():
                     obj = objs.to_dict()
-                    key = f"{obj['__class__']}.{obj['id']}"
+                    key = "{}.{}".format(obj['__class__'], obj['id'])
                     obj_dict[key] = objs
         else:
             for objs in self.__session.query(cls).all():
                 obj = objs.to_dict()
-                key = f"{obj['__class__']}.{obj['id']}"
+                key = "{}.{}".format(obj['__class__'], obj['id'])
                 obj_dict[key] = objs
         return obj_dict
 
