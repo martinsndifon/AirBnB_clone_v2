@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""ALX SE Flask Module."""
+"""
+ALX SE Flask Module to render the web application
+using the url /cities_by_states
+"""
 from models import storage
 from models.state import State
 from flask import Flask, render_template
